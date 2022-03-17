@@ -9,9 +9,17 @@ public class Account {
     }
 
     public boolean checkNameToEmboss() {
-        if(name.matches("^[А-Яа-яё]{1,9} [А-Яа-яё]{1,9}$")) {
+
+        if (name.isEmpty() && name == null) {
+            return false;
+        } else if (name.length() < 3)    {
+            return false;
+        } else if (name.length() > 19)    {
+            return false;
+        } else if (name.matches("^[а-яёА-ЯЁ]+\\s[а-яёА-ЯЁ-]+$")) {
             return true;
         }
         return false;
     }
 }
+///^[а-яёА-ЯЁ]+(?:\s[а-яёА-ЯЁ.-]+)*$/
