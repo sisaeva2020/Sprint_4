@@ -12,14 +12,9 @@ public class Account {
 
         if (name.isEmpty() && name == null) {
             return false;
-        } else if (name.length() < 3)    {
-            return false;
-        } else if (name.length() > 19)    {
-            return false;
-        } else if (name.matches("^[а-яёА-ЯЁ]+\\s[а-яёА-ЯЁ-]+$")) {
+        } else if (name.matches("^(?=[а-яА-Яё]+[\\s][а-яА-Яё-]+$)(.{3,19})")) {
             return true;
         }
         return false;
     }
 }
-///^[а-яёА-ЯЁ]+(?:\s[а-яёА-ЯЁ.-]+)*$/

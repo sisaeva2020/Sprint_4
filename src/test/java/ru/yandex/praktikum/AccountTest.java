@@ -3,8 +3,7 @@ package ru.yandex.praktikum;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import static org.junit.Assert.*;
 
 
 @RunWith(Parameterized.class)
@@ -46,8 +45,9 @@ public class AccountTest {
         try {
             actualResult = account.checkNameToEmboss();
         } catch (NullPointerException exception) {
-            actualResult = false;
+            System.out.println("Печать невозможна. Данные владельца карты не введены");;
         }
-        assertEquals(expectedResult, actualResult, "Введенное имя некорректно. Имя должно быть длиной от 3 до 19 символов и содержать один пробел между именем и фамилией");
+        assertEquals("Введенное имя некорректно. Имя должно быть длиной от 3 до 19 символов и содержать один пробел между именем и фамилией", expectedResult, actualResult);
     }
 }
+
